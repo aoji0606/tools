@@ -4,6 +4,7 @@ set ruler
 set incsearch
 set showmatch
 set hlsearch
+set showcmd
 
 set tabstop=4
 set softtabstop=4
