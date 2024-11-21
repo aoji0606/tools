@@ -13,4 +13,3 @@ for line in tqdm(lines):
     data = json.loads(line)
     res.append(data)
 json.dump(res, open(args.path.replace(".jsonl", ".json"), 'w'), indent=2, ensure_ascii=False)
-

@@ -5,7 +5,6 @@ import random
 from tqdm import tqdm
 from pprint import pprint as pp
 
-
 jsons = sys.argv[1:-1]
 res = []
 for file in jsons:
@@ -14,8 +13,6 @@ for file in jsons:
     print(file, len(data))
 
 print("res:", len(res))
-#random.shuffle(res)
+# random.shuffle(res)
 json.dump(res, open(sys.argv[-1], 'w'), indent=2, ensure_ascii=False)
 print("save as:", sys.argv[-1])
-
-

@@ -9,7 +9,7 @@ def run(thread_id, data):
             print(thread_id, item)
         except:
             traceback.print_exc()
-    
+
 
 data = list(range(100))
 data_size = len(data)

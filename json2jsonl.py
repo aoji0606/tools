@@ -17,4 +17,3 @@ for idx, item in enumerate(tqdm(data)):
     writer.write(json.dumps(item, ensure_ascii=False) + '\n')
 
 writer.close()
-

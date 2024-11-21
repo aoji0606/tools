@@ -12,7 +12,7 @@ def run(thread_id, data, lock):
             lock.release()
         except:
             traceback.print_exc()
-    
+
 
 data = list(range(100))
 data_size = len(data)

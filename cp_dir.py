@@ -11,4 +11,4 @@ num = int(sys.argv[3])
 files = os.listdir(src)
 random.shuffle(files)
 for file in tqdm(files[:num]):
-    copytree(os.path.join(src,file), os.path.join(dst,file))
+    copytree(os.path.join(src, file), os.path.join(dst, file))
