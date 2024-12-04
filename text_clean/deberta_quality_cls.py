@@ -1,3 +1,4 @@
+import sys
 import json
 import torch
 from torch import nn
@@ -24,18 +25,16 @@ class QualityModel(nn.Module, PyTorchModelHubMixin):
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# Setup configuration and model
 # https://huggingface.co/nvidia/quality-classifier-deberta
 print("load model...")
-path = "../models/quality-classifier-deberta"
+path = "quality-classifier-deberta"
 config = AutoConfig.from_pretrained(path)
 tokenizer = AutoTokenizer.from_pretrained(path)
 model = QualityModel.from_pretrained(path).to(device)
 model.eval()
 
-# Prepare and process inputs
 print("load data...")
-data = json.load(open("openorca.json"))
+data = json.load(open(sys.argv[1]))
 
 high_num = 0
 mid_num = 0
@@ -68,5 +67,8 @@ for i in tqdm(data):
         print(" " * 40, i["quality"])
         high_num += 1
 
-print(f"high_num:{high_num}, mid_num:{mid_num}, low_num:{low_num}, err_num:{err_num}")
+print("high_num", high_num)
+print("mid_num", mid_num)
+print("low_num", low_num)
+print("err_num", err_num)
 json.dump(data, open("quality.json", 'w'), indent=2, ensure_ascii=False)
